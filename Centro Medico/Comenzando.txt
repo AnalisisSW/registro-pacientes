@@ -1,0 +1,9 @@
+Registro de pacientes
+
+1. Descargar el XAMPP Control Panel (https://www.apachefriends.org/es/index.html) 
+
+2. Poner en START el motor de Base de datos MySQL
+
+3. Si es la primera vez que utiliza la aplicación debe ejecutar la aplicación Database.exe, si no es la primera vez que utiliza la aplicacion NO EJECUTE la aplicacion Database.exe porque generaria perdida de todos los datos ya almacenados en el sistema.
+
+4. Ejecute la aplicacion RegistroPacientes.exe
