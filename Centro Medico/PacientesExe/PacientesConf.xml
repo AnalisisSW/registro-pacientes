@@ -2,8 +2,8 @@
 <launch4jConfig>
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
-  <jar>C:\Users\Facundo\Desktop\Análisis de Software\Trabajo Práctico Grupal\Centro Medico\Ejecutable\RegistroDePacientes.jar</jar>
-  <outfile>C:\Users\Facundo\Desktop\Análisis de Software\Trabajo Práctico Grupal\Centro Medico\Ejecutable\RegistroPacientes.exe</outfile>
+  <jar>C:\Users\Facundo\Desktop\Análisis de Software\Trabajo Práctico Grupal\Centro Medico\PacientesExe\RegistroDePacientes.jar</jar>
+  <outfile>C:\Users\Facundo\Desktop\Análisis de Software\Trabajo Práctico Grupal\Centro Medico\PacientesExe\RegistroPacientes.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
@@ -13,12 +13,12 @@
   <stayAlive>false</stayAlive>
   <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
-  <icon>C:\Users\Facundo\Desktop\Análisis de Software\Trabajo Práctico Grupal\Centro Medico\Ejecutable\CMC.ico</icon>
+  <icon>C:\Users\Facundo\Desktop\Análisis de Software\Trabajo Práctico Grupal\Centro Medico\PacientesExe\CMC.ico</icon>
   <jre>
-    <path></path>
+    <path>C:\Program Files\Java</path>
     <bundledJre64Bit>false</bundledJre64Bit>
     <bundledJreAsFallback>false</bundledJreAsFallback>
-    <minVersion>1.8.0_60</minVersion>
+    <minVersion>1.8.0</minVersion>
     <maxVersion></maxVersion>
     <jdkPreference>preferJre</jdkPreference>
     <runtimeBits>64/32</runtimeBits>
