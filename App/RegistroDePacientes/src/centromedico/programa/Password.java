@@ -13,8 +13,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 
 /**
- *
- * @author Facundo
+ * @author Grupo 7
  */
 public class Password extends javax.swing.JFrame {
 
@@ -198,11 +197,13 @@ public class Password extends javax.swing.JFrame {
             try {
                 factory = SessionFactoryManager.getSessionFactory();
                 UserR userRepo = new UserR(factory);
-                
+                //Busca si ya existe un usuario con ese username
                 User retorno = (User) userRepo.getById(User.class, usuario);
                 if(retorno != null){
+                    //si existe le pido el dni para verificar que es esa persona
                     if(dni.equals(retorno.getDni())){
                         if(pass1.equals(pass2)){
+                            //actualizo la contraseña
                             retorno.setPassword(pass1);
                             userRepo.update(retorno);
                             this.setVisible(false);

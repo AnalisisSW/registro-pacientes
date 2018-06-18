@@ -8,7 +8,6 @@ package centromedico.programa;
 import centromedico.images.Imagen;
 
 /**
- *
  * @author Facundo
  */
 public class Informes extends javax.swing.JFrame {

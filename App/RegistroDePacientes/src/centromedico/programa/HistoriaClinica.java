@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
- * @author Facundo
+ * @author Grupo 7
  */
 public class HistoriaClinica extends javax.swing.JFrame {
 

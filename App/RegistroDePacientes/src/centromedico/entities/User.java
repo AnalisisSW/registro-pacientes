@@ -14,23 +14,26 @@ import javax.persistence.Table;
 /**
  *
  * @author Grupo 7
+ * Clase utilizada como POJO para mapear contra la base de datos
+ * Se definen las anotaciones Entity y Table para que hibernate reconozca
+ * que es una clase con anotaciones para ser mapeada con una tabla de bdd
  */
 @Entity
 @Table(name="Users")
 public class User implements Serializable {
-    
+    //Primary key para la tabla users
     @Id
-    @Column(name="usuario")
+    @Column(name="usuario") //nombre de la columna
     private String usuario;
     
-    @Column(name="password")
+    @Column(name="password") //nombre de la columna
     private String password;
     
-    @Column(name="dni")
+    @Column(name="dni") //nombre de la columna
     private String dni;
 
     /**
-     * Constructor x defecto
+     * Constructor vació
      */
     public User() {
     }

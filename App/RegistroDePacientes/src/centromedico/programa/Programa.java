@@ -6,8 +6,7 @@
 package centromedico.programa;
 
 /**
- *
- * @author Facundo
+ * @author Grupo 7
  */
 public class Programa extends javax.swing.JFrame {
 

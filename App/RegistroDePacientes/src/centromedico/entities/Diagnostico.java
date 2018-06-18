@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package centromedico.entities;
 
 import java.io.Serializable;
@@ -15,27 +10,34 @@ import javax.persistence.Table;
 /**
  *
  * @author Grupo 7
+ * Clase utilizada como POJO para mapear contra la base de datos
+ * Se definen las anotaciones Entity y Table para que hibernate reconozca
+ * que es una clase con anotaciones para ser mapeada con una tabla de bdd
  */
 @Entity
 @Table(name="Diagnosticos")
 public class Diagnostico implements Serializable {
     
+    //Se utiliza un id que va a ser nuestra clave primaria en la tabla
     @Id    
-    @GeneratedValue
+    @GeneratedValue //se define que es auto_increment y tambien se define el nombre de la columna
     @Column(name="id_diagnostico")
     private Long id;
     
+    //nombre de columna
     @Column(name="codPac")
     private String codPac;
     
+    //nombre de columna
     @Column(name="codMed")
     private String codMed;
     
+    //nombre de columna
     @Column(name="diagnostico")
     private String diagnostico;
 
     /**
-     * Constructor x defecto
+     * Constructor vacio
      */
     public Diagnostico() {
     }

@@ -14,7 +14,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 
 /**
- *
  * @author Facundo
  */
 public class Login extends javax.swing.JFrame {
@@ -240,24 +239,31 @@ public class Login extends javax.swing.JFrame {
     private void jButtonIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIngresarActionPerformed
         String usuario = jTextFieldUser.getText();
         String pass = String.copyValueOf(jPassword.getPassword());
+        //Valido que ningun campo este vacio
         if(usuario != null && !usuario.isEmpty() && pass!=null && !pass.isEmpty()){
             User user = new User(usuario, pass);
             try {
+                //obtengo la conexion
                 factory = SessionFactoryManager.getSessionFactory();
                 UserR userRepo = new UserR(factory);
                 
+                //Busco el usuario en la base de datos
                 User retorno = (User) userRepo.getById(User.class, user.getUsuario());
                 if(retorno != null){
+                    //si existe comparo las contraseñas
                     if(user.getPassword().equals(retorno.getPassword())){
+                        //si las contraseñas son iguales le abro la ventana principal
                         Programa ventana = new Programa();
                         ventana.requestFocusInWindow();
                         ventana.setVisible(true);
                         this.setVisible(false);
                     }else{
+                        //si la contraseña no es igual le informo que existe un error en las credenciales
                         jLabelRespuestaE.setText("Usuario y/o contraseña incorrectos");
                     }
                 }else{
-                    jLabelRespuestaE.setText("Usuario no registrado");
+                    //si el usuario no existe le informo un error de credenciales
+                    jLabelRespuestaE.setText("Usuario y/o contraseña incorrectos");
                 }
                 userRepo.getFactory().close();
             } catch (HibernateException e) {

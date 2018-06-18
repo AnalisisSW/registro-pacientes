@@ -13,8 +13,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 
 /**
- *
- * @author Facundo
+ * @author Grupo 7
  */
 public class Registro extends javax.swing.JFrame {
 
@@ -227,10 +226,12 @@ public class Registro extends javax.swing.JFrame {
             try {
                 factory = SessionFactoryManager.getSessionFactory();
                 UserR userRepo = new UserR(factory);
-                
+                //Busco si el usuario existe en la bdd
                 User existe = (User) userRepo.getById(User.class, usuario);
                 if(existe == null){
+                    //si no existe pregunto si las contraseñas son iguales
                     if(pass1.equals(pass2)){
+                        //si las contraseñas coinciden guardo el usuario en la bdd
                         User nuevo = new User(usuario, pass1, dni);
                         userRepo.save(nuevo);
                         this.setVisible(false);

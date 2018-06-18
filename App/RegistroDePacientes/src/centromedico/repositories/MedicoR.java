@@ -6,7 +6,6 @@
 package centromedico.repositories;
 
 import centromedico.entities.Medico;
-import centromedico.entities.Paciente;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -15,7 +14,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 /**
- *
  * @author Grupo 7
  */
 public class MedicoR extends Repository{
@@ -26,7 +24,11 @@ public class MedicoR extends Repository{
         }
         this.factory = factory;
     }
-     
+    
+    /**
+     * Metodo getAll de medicos
+     * @return medicos
+     */
     public List<Medico> getAll(){
        Session s = factory.openSession();
        List<Medico> medicos = new ArrayList<>();
@@ -42,6 +44,11 @@ public class MedicoR extends Repository{
         }
     }
     
+    /**
+     * Get by especialidad
+     * @param especialidad
+     * @return medicos
+     */
     public List<Medico> getByEsp(String especialidad){
         Session s = factory.openSession();
         List<Medico> medicos = new ArrayList<>();

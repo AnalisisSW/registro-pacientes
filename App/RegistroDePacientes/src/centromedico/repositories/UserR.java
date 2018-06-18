@@ -8,7 +8,6 @@ package centromedico.repositories;
 import org.hibernate.SessionFactory;
 
 /**
- *
  * @author Grupo 7
  */
 public class UserR extends Repository {

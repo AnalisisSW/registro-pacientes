@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 /**
  *
  * @author Grupo 7
+ * Clase utilizada para dibujar las imagenes en el Java Swing
  */
 public class Imagen extends JPanel{
     

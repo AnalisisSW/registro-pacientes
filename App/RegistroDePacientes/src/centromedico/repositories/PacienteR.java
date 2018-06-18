@@ -13,7 +13,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 /**
- *
  * @author Grupo 7
  */
 public class PacienteR extends Repository {
@@ -25,6 +24,10 @@ public class PacienteR extends Repository {
         this.factory = factory;
     }
     
+    /**
+     * Get All
+     * @return pacientes
+     */
     public List<Paciente> getAll(){
         Session s = factory.openSession();
         List<Paciente> pacientes = null;

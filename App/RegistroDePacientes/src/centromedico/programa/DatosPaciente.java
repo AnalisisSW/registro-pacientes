@@ -14,8 +14,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 
 /**
- *
- * @author Facundo
+ * @author Grupo 7
  */
 public class DatosPaciente extends javax.swing.JFrame {
     
@@ -179,14 +178,16 @@ public class DatosPaciente extends javax.swing.JFrame {
         if(validarCampos(codigo,apellido,nombre)){
             try {
                 PacienteR pacienteRepo = new PacienteR(factory);
-                
+                //busco en la bdd si ya existe un paciente con ese codigo
                 Paciente existe = (Paciente) pacienteRepo.getById(Paciente.class, codigo);
                 if(existe == null) {
+                    //si no existe lo guardo
                     Paciente nuevo = new Paciente(codigo, apellido, nombre);
                     pacienteRepo.save(nuevo);
                     this.setVisible(false);
                     JOptionPane.showMessageDialog(null, "Paciente guardado con éxito");
                 }else{
+                    //si existe le aviso al usuario que ya existe un paciente con ese codigo
                     JOptionPane.showMessageDialog(null, "Ya existe un paciente con ese codigo");
                 }
             } catch (HibernateException e) {
@@ -247,6 +248,13 @@ public class DatosPaciente extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNombre;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Método para la validar los Campos
+     * @param codigo
+     * @param apellido
+     * @param nombre
+     * @return boolean
+     */
     private boolean validarCampos(String codigo, String apellido, String nombre) {
         return (codigo!=null && !codigo.isEmpty() && apellido!=null && 
                 !apellido.isEmpty() && nombre!=null && !nombre.isEmpty());

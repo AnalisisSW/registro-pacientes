@@ -17,17 +17,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 
 /**
- *
- * @author Facundo
+ * @author Grupo 7
  */
 public class PacientesPorMedico extends javax.swing.JFrame {
 
@@ -183,6 +179,7 @@ public class PacientesPorMedico extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         List<Medico> listaMedicos = new ArrayList<>();
         try {
+            //Cuando se abre la ventana cargo todos los medicos en el comboBox
             MedicoR medicoRepo = new MedicoR(factory);
             listaMedicos = medicoRepo.getAll();
             listaMedicos.forEach(item->{
@@ -203,6 +200,7 @@ public class PacientesPorMedico extends javax.swing.JFrame {
         String codMed = (String) jComboBoxMedicos.getSelectedItem();
         jTablePacientes.removeAll();
         if(codMed!=null && !codMed.isEmpty()){
+            //busca todos los pacientes que atendio ese medico
             try {
                 List<Diagnostico> diagnosticos = new ArrayList<>();
                 String codM = firstWord(codMed, '|');
@@ -231,10 +229,11 @@ public class PacientesPorMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
     private void jTablePacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePacientesMouseClicked
-//        JOptionPane.showMes
+        
         int row = jTablePacientes.rowAtPoint(evt.getPoint());
         String codigo = (String) jTablePacientes.getModel().getValueAt(row, 0);
         try {
+            //Al hacer click en uno de los pacientes se abre la historia clinica del mismo
             DiagnosticoR diagRepo = new DiagnosticoR(factory);
             List<Diagnostico> listDiag = diagRepo.getByCP(Diagnostico.class, codigo);
             HistoriaClinica history = new HistoriaClinica();

@@ -180,8 +180,11 @@ public class DatosDiagnostico extends javax.swing.JFrame {
         String diag = jTextAreaDiag.getText();
         if(validarCampos(codPac,codMed,diag)){
             try {
+                //se guarda el codigo de paciente
                 String codP = firstWord(codPac, '|');
+                //se guarda el codigo del medico
                 String codM = firstWord(codMed, '|');
+                //se guarda el diagnostico en la base de datos
                 DiagnosticoR diagnosticoRepo = new DiagnosticoR(factory);
                 Diagnostico nuevo = new Diagnostico(codP, codM, diag);
                 diagnosticoRepo.save(nuevo);
@@ -208,6 +211,7 @@ public class DatosDiagnostico extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         List<Paciente> listaPacientes = new ArrayList<>();
         List<Medico> listaMedicos = new ArrayList<>();
+        //se cargan todos los pacientes y todos los medicos en las listas apenas se abre la ventana
         try {
             PacienteR pacienteRepo = new PacienteR(factory);
             listaPacientes = pacienteRepo.getAll();
@@ -273,11 +277,24 @@ public class DatosDiagnostico extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaDiag;
     // End of variables declaration//GEN-END:variables
 
+    /**
+     * Metodo para validar que los campos no esten vacios
+     * @param codPac
+     * @param codMed
+     * @param diag
+     * @return boolean
+     */
     private boolean validarCampos(String codPac, String codMed, String diag) {
         return (codPac!=null && !codPac.isEmpty() && codMed!=null
                 && !codMed.isEmpty() && diag!=null && !diag.isEmpty());
     }
 
+    /**
+     * Metodo que trunca las palabras devolviendo la palabra que se encuentra hasta un delimitador
+     * @param str
+     * @param delimeter
+     * @return 
+     */
     private String firstWord(String str, char delimeter) {
         return str.substring(0, str.indexOf(delimeter));
     }

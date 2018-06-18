@@ -18,7 +18,6 @@ import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 
 /**
- *
  * @author Facundo
  */
 public class MedicosPorEspecialidad extends javax.swing.JFrame {
@@ -176,6 +175,7 @@ public class MedicosPorEspecialidad extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         List<Medico> listaMedicos = new ArrayList<>();
+        //cuando se abre la ventana cargo todas las especialidades en el comboBox
         try {
             MedicoR medicoRepo = new MedicoR(factory);
             listaMedicos = medicoRepo.getAll();
@@ -196,6 +196,7 @@ public class MedicosPorEspecialidad extends javax.swing.JFrame {
         String especialidad = (String) jComboBoxEspecialidad.getSelectedItem();
         if(especialidad!=null && !especialidad.isEmpty()){
             try {
+                //Busca los medicos en la bdd con la especialidad indicada y los agrega a la lista
                 List<Medico> medicosEsp = new ArrayList<>();
                 MedicoR medicoRepo = new MedicoR(factory);
                 medicosEsp = medicoRepo.getByEsp(especialidad);

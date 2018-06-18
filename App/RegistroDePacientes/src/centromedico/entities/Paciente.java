@@ -11,23 +11,26 @@ import javax.persistence.Table;
 /**
  *
  * @author Grupo 7
+ * Clase utilizada como POJO para mapear contra la base de datos
+ * Se definen las anotaciones Entity y Table para que hibernate reconozca
+ * que es una clase con anotaciones para ser mapeada con una tabla de bdd
  */
 @Entity
 @Table(name="Pacientes")
 public class Paciente implements Serializable, Comparable<Paciente>{
-    
+    //Primary key de la tabla Pacientes
     @Id
-    @Column(name="codigo")
+    @Column(name="codigo")//nombre de la columna
     private String codigo;
     
-    @Column(name="apellido")
+    @Column(name="apellido")//nombre de la columna
     private String apellido;
     
-    @Column(name="nombre")
+    @Column(name="nombre")//nombre de la columna
     private String nombre;
     
     /**
-     * Constructor x defecto
+     * Constructor vació
      */
     public Paciente() {
     }
@@ -102,6 +105,11 @@ public class Paciente implements Serializable, Comparable<Paciente>{
                 "\nNombre: " + nombre + "\n";
     }
 
+    /**
+     * CompareTo para pacientes
+     * @param o
+     * @return 
+     */
     @Override
     public int compareTo(Paciente o) {
         return this.codigo.compareTo(o.codigo);

@@ -8,8 +8,8 @@ package centromedico.tests;
 import centromedico.entities.User;
 
 /**
- *
  * @author Grupo 7
+ * Test User
  */
 public class TestUser {
     

@@ -12,8 +12,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 
 /**
- *
  * @author Grupo 7
+ * Test DiagnosticoR
  */
 public class TestDiagnosticoR {
     

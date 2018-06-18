@@ -13,11 +13,15 @@ import org.hibernate.Transaction;
 /**
  *
  * @author Grupo 7
+ * Clase abstracta Repository que va a ser extendida por los repositorios particulares
+ * o DAOs que son los Data Access Object que van a realizar las ABMC contra la bdd
  */
 public abstract class Repository {
     
+    //Atributto privado para la Conexion
     protected SessionFactory factory;
     
+    //metodo save
     public String save(Object o){
         Session s = factory.openSession();
         Transaction tx = null;
@@ -34,6 +38,7 @@ public abstract class Repository {
         }
     }
     
+    //metodo update
     public void update(Object o){
         Session s = factory.openSession();
         Transaction tx = null;
@@ -49,6 +54,7 @@ public abstract class Repository {
         }
     }
     
+    //metodo delete
     public void delete(Object o){
         Session s = factory.openSession();
         Transaction tx = null;
@@ -64,6 +70,7 @@ public abstract class Repository {
         }
     }
     
+    //metodo GetById
     public Object getById(Class<?> nameClass, String id){
         Session s = factory.openSession();
         try {
@@ -77,6 +84,10 @@ public abstract class Repository {
         }
     }
 
+    /**
+     * Get Factory
+     * @return factory
+     */
     public SessionFactory getFactory() {
         return factory;
     }

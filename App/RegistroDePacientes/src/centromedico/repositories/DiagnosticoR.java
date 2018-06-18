@@ -15,8 +15,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
- *
- * @author Facundo
+ * @author Grupo 7
  */
 public class DiagnosticoR extends Repository{
     
@@ -28,11 +27,10 @@ public class DiagnosticoR extends Repository{
     }
 
     /**
-     *
+     * Metodo save que retorna el id
      * @param o
-     * @return
+     * @return id
      */
-    
     public Long save(Diagnostico o) {
         Session s = factory.openSession();
         Transaction tx = null;
@@ -49,6 +47,12 @@ public class DiagnosticoR extends Repository{
         }
     }
 
+    /**
+     * Metodo sobreescrito getById
+     * @param nameClass
+     * @param id
+     * @return diagnostico
+     */
     @Override
     public Diagnostico getById(Class<?> nameClass, String id) {
         Session s = factory.openSession();
@@ -63,6 +67,11 @@ public class DiagnosticoR extends Repository{
         }
     }
     
+    /**
+     * GetByMedico
+     * @param codMed
+     * @return Lista de diagnosticos
+     */
     public List<Diagnostico> getByMedico(String codMed){
         List<Diagnostico> listaDiag = new ArrayList<>();
         Session s = factory.openSession();
@@ -79,6 +88,13 @@ public class DiagnosticoR extends Repository{
         }
     }
     
+    /**
+     * Get by codigo de Paciente y codigo de medico
+     * @param nameClass
+     * @param codPac
+     * @param codMed
+     * @return 
+     */
     public List<Diagnostico> getByCPCM(Class<?> nameClass, String codPac, String codMed) {
         Session s = factory.openSession();
         List<Diagnostico> listaDiag = new ArrayList<>();
@@ -96,6 +112,12 @@ public class DiagnosticoR extends Repository{
         }
     }
     
+    /**
+     * Get by codigo Paciente
+     * @param nameClass
+     * @param codPac
+     * @return 
+     */
     public List<Diagnostico> getByCP(Class<?> nameClass, String codPac) {
         Session s = factory.openSession();
         List<Diagnostico> listaDiag = new ArrayList<>();
