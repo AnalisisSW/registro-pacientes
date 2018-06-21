@@ -215,9 +215,6 @@ public class PacientesPorMedico extends javax.swing.JFrame {
                 DefaultTableModel model = (DefaultTableModel) jTablePacientes.getModel();
                 model.setRowCount(0);
                 pacientes.forEach(item->{
-//                    List<Diagnostico> listDiag = diagnosticoRepo.getByCPCM(Diagnostico.class,item.getCodigo(), codM);
-//                    String historiaClinica = "";
-//                    historiaClinica = listDiag.stream().map((d) -> d.getDiagnostico()).reduce(historiaClinica, String::concat);
                     model.addRow(new Object[]{item.getCodigo(), item.getApellido(), item.getNombre()});
                 });
             } catch (HibernateException ex) {

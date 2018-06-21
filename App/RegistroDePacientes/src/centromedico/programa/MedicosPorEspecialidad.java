@@ -5,13 +5,12 @@
  */
 package centromedico.programa;
 
+import centromedico.entities.Especialidad;
 import centromedico.entities.Medico;
 import centromedico.hibernate.manager.SessionFactoryManager;
 import centromedico.repositories.MedicoR;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.hibernate.HibernateException;
@@ -174,22 +173,11 @@ public class MedicosPorEspecialidad extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        List<Medico> listaMedicos = new ArrayList<>();
         //cuando se abre la ventana cargo todas las especialidades en el comboBox
-        try {
-            MedicoR medicoRepo = new MedicoR(factory);
-            listaMedicos = medicoRepo.getAll();
-            Set<Medico> espSet = new TreeSet<>();
-            listaMedicos.forEach(item->{
-                espSet.add(item);
-            });
-            espSet.forEach(item->{
-                String esp = item.getEspecialidad();
-                jComboBoxEspecialidad.addItem(esp);
-            });
-        } catch (HibernateException ex) {
-            System.out.println(ex);
-        }
+        List<String> especialidades = Especialidad.getEspecialidades();
+        especialidades.forEach(especialidad->{
+            jComboBoxEspecialidad.addItem(especialidad);
+        });
     }//GEN-LAST:event_formWindowOpened
 
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
